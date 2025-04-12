@@ -68,18 +68,12 @@ WORKDIR /app/interpreter
 RUN npm install
 RUN npx cmake-js compile --CDNODE=true
 
-
-
-
-
-
-
-
-
 WORKDIR /app/web-service
 
 RUN mkdir -p /app/web-service/napi
 RUN mv /app/lexer/build/Release/sQeeZ-Lexer-Node.node /app/web-service/napi/
+RUN mv /app/parser/build/Release/sQeeZ-Parser-Node.node /app/web-service/napi/
+RUN mv /app/interpreter/build/Release/sQeeZ-Interpreter-Node.node /app/web-service/napi/
 
 WORKDIR /app/web-service
 
