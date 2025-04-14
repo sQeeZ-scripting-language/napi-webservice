@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -9,6 +10,7 @@ const lexer = require('./controllers/lexer-controller');
 const parser = require('./controllers/parser-controller');
 const interpreter = require('./controllers/interpreter-controller');
 
+app.use(cors());
 app.use(express.json());
 
 lexer.registerRoutes(app);
